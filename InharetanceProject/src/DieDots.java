@@ -4,16 +4,14 @@ import java.applet.*;
 public class DieDots extends Applet {
 
 	public void paint(Graphics g){
-		BlackBlobs newDie = new BlackBlobs(g);
-		//BlackBlobs numbers = new BlackBlobs(g, 10, 10); //creates new BlackBlobs
+		BlackBlobs numbers = new BlackBlobs(g, 10, 10); //creates new BlackBlobs
 	}
 }
 
 
 class BlackBlobs extends Cube{
-	
-	public BlackBlobs(Graphics g){
-		
+	private int theX= 600;
+	public BlackBlobs(Graphics g, int xDot, int yDot){
 		dotsss(g);
 	 }
 	 
