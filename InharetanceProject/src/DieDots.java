@@ -1,17 +1,18 @@
 import java.awt.*;
 import java.applet.*;
 
+@SuppressWarnings("serial")
 public class DieDots extends Applet {
 
 	public void paint(Graphics g){
-		BlackBlobs numbers = new BlackBlobs(g, 10, 10); //creates new BlackBlobs
+		BlackBlobs numbers = new BlackBlobs(g); //creates new BlackBlobs
 	}
 }
 
 
 class BlackBlobs extends Cube{
 	private int theX= 600;
-	public BlackBlobs(Graphics g, int xDot, int yDot){
+	public BlackBlobs(Graphics g){
 		dotsss(g);
 	 }
 	 

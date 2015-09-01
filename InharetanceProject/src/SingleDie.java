@@ -1,9 +1,11 @@
+import java.awt.Graphics;
 
-public class SingleDie extends Cube{
-	private DieDots onIt
+
+class SingleDie extends CubeCuba{
+	private DotsOfTheDie onIt;
 	
 	public SingleDie(Graphics g){
 		super(g);
-	onIt = new DieDots(g);
+	onIt = new DotsOfTheDie(g);
 	}
 }
