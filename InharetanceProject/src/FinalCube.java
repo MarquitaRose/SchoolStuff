@@ -1,27 +1,46 @@
 import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
 
 public class FinalCube extends Applet{
 	public void paint(Graphics g){
-	Diieee die = new Diieee(g); //creates new SingleDie
+	
+	setBackground(Color.cyan);
+	//int width=getSize().width;
+    //int height=getSize().height;
+    //this.setSize(new Dimension(width,height));
+
+	Diieee die = new Diieee(g, 200, 100);         //creates new Diieee
+	Diieee leftCube = new Diieee(g, 600, 250);
+	Diieee lowCube = new Diieee(g, 1000, 500);
 	}
 }
 
 class CubeCuba{
-	int theX = 600;       //declares variables that would help new cubes to be made with different sizes and positions
-	int theY = 250;
+	static int theX;       //declares variables that would help new cubes to be made with different sizes and positions
+	static int theY;
 	int theWidth = 250;
 	int theHeight = 250;
 	
-	public CubeCuba(Graphics g){
-		g.drawRect(theX, theY, theWidth, theHeight);  //draws a square
-		leftSide(g);                                    //calls method leftSide
-		topSide(g);                                     //calls method topSide
+	public CubeCuba(Graphics g, int theX, int theY){
+		squareFace(g, theX, theY);                                  //calls method squareFace for main cube ( the die)
+		leftSide(g, theX, theY);                                    //calls method leftSide for main cube (the die)
+		topSide(g, theX, theY);                                     //calls method topSide for the main cube  (the die)
+		
+		
+		//squareFace(g, 200, 100);                                   //calls method for squareFace on the upper left
+		//leftSide(g, 200, 100);                                     //calls method for leftSide on the upper left
+		//topSide(g, 200, 100);                                      //calls method for topSide on the upper left
 	}
 	
-	public void leftSide(Graphics g){    //method adds the left "3Ding" of the cube
+	public void squareFace(Graphics g, int theX, int theY){
+		g.drawRect(theX, theY, theWidth, theHeight);  //draws a square
+	}
+	
+	public void leftSide(Graphics g, int theX, int theY){    //method adds the left "3Ding" of the cube
 
 		Polygon cubingl = new Polygon();  //creates a new polygon called cubingl
 		cubingl.addPoint(theX, theY);       //adds points of polygon cubingl
@@ -33,15 +52,17 @@ class CubeCuba{
 	}
 	
 	
-	public void topSide(Graphics g){     //method adds the top "3Ding" of the cube
+	public void topSide(Graphics g, int theX, int theY){     //method adds the top "3Ding" of the cube
 		  Polygon cubingt = new Polygon();  //creates a new polygon called cubingt
 		  cubingt.addPoint(theX, theY);       //adds points of polygon cubingt
 		  cubingt.addPoint(theX-100, theY-100);
-		  cubingt.addPoint(750, theY-100);
+		  cubingt.addPoint(theX+150, theY-100);
 		  cubingt.addPoint(theX+250, theY);
 		  g.drawPolygon(cubingt);         //draws polygon cubingt using the inputed points
 	}
 }
+
+
 
  class DotsOfTheDie{
 	 	int theX = 600;      //defining the values
@@ -63,10 +84,10 @@ class CubeCuba{
  }
  
 class Diieee extends CubeCuba{
-		private DotsOfTheDie onIt;
+		 DotsOfTheDie onIt;
 		
-		public Diieee(Graphics g){
-			super(g);
+		public Diieee(Graphics g, int theX, int theY){
+			super(g, theX, theY);
 		onIt = new DotsOfTheDie(g);
 		}
 	}
